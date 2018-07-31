@@ -1,4 +1,4 @@
-package com.shiyangtao.synch_reentrant;
+ package com.shiyangtao.synch_reentrant;
 
 /**
  * 主要为了测试，子类覆盖父类方法后，调用子类方法时，也获取父类的锁
@@ -21,13 +21,13 @@ public class TestWidget {
             public void run() {
                 System.out.println(super.getName() + ":start\r\n");
                 /** 为了说明子类复写父类方法后，调用时也持有父类锁*/
-                widget.doAnother();
+//                widget.doAnother();
                 /**证明了内置锁对那些没有加synchronized修饰符的方法是不起作用的*/
-                //widget.doNother();
+//                widget.doNother();
                 /**为了说明子类复写父类方法后，调用时也持有父类锁，也持有自己本类的锁*/
 //                 widget.doMyLike();
                 /**这是两个线程，这是需要等待的，并不是继承的关系，不是重入，重入是发生在一个线程中的*/
-                //widget.doSometing();
+                widget.doSometing();
             }
         };
 
